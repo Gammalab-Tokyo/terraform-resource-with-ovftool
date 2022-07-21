@@ -16,5 +16,10 @@ RUN echo "StrictHostKeyChecking no" >> $HOME/.ssh/config
 RUN echo "LogLevel quiet" >> $HOME/.ssh/config
 RUN chmod 0600 $HOME/.ssh/config
 
+RUN mkdir -p /usr/local/share/terraform/plugins/github.com/ashald/stateful/1.2.0/linux_amd64/ && \
+    wget -O /usr/local/share/terraform/plugins/github.com/ashald/stateful/1.2.0/linux_amd64/terraform-provider-stateful_v1.2.0 \
+    "https://github.com/ashald/terraform-provider-stateful/releases/download/v1.2.0/terraform-provider-stateful_v1.2.0-linux-amd64" && \
+    chmod +x /usr/local/share/terraform/plugins/github.com/ashald/stateful/1.2.0/linux_amd64/terraform-provider-stateful_v1.2.0
+
 RUN terraform --version
 COPY out/check out/in out/out /opt/resource/
