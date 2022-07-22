@@ -2,7 +2,7 @@ FROM ubuntu:focal
 
 RUN apt update \
  && apt upgrade -y \
- && apt install -y ca-certificates git bash openssh-client curl gpg wget libncursesw5\
+ && apt install -y ca-certificates git bash openssh-client curl gpg wget libncursesw5 ansible\
  && wget -O- https://apt.releases.hashicorp.com/gpg | \
         gpg --dearmor | \
         tee /usr/share/keyrings/hashicorp-archive-keyring.gpg \
